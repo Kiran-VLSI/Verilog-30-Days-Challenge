@@ -1,7 +1,16 @@
+//and gate
 module andgate(
     input a,
     input b,
     output y
     );
     assign y = a&b;
+endmodule
+//or gate
+module orgate(
+    input a,
+    input b,
+    output y
+    );
+    assign y = a||b;
 endmodule
