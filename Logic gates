@@ -160,5 +160,59 @@ $finish;
 end
 endmodule
 
+//Exorgate
+module Exorgate(
+    input a,
+    input b,
+    output y
+    );
+    assign y = a ^ b;
+endmodule
 
+//Testbench
+module Exorgate_tb;
+reg a,b;
+wire y;
+Exorgate uut(.a(a),.b(b),.y(y));
+initial begin
+$monitor("Time =%0t: a=%b, b=%b, y=%b",$time,a,b,y);
+a=0;b=0;
+#10;
+a=0;b=1;
+#10;
+a=1;b=0;
+#10;
+a=1;b=1;
+#10;
+$finish;
+end
+endmodule
+
+//Exnor
+module Exnorgate(
+    input a,
+    input b,
+    output y
+    );
+    assign y = ~(a ^ b);
+endmodule
+
+//Testbench
+module Enxorgate_tb;
+reg a,b;
+wire y;
+Exnorgate uut(.a(a),.b(b),.y(y));
+initial begin
+$monitor("Time =%0t: a=%b, b=%b, y=%b",$time,a,b,y);
+a=0;b=0;
+#10;
+a=0;b=1;
+#10;
+a=1;b=0;
+#10;
+a=1;b=1;
+#10;
+$finish;
+end
+endmodule
 
