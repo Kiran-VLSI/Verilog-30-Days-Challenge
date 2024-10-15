@@ -26,7 +26,6 @@ andgate uut(.a(a),.b(b),.y(y));
   end
 endmodule
 
-
 //or gate
 module orgate(
     input a,
@@ -77,4 +76,30 @@ a=1;
 $finish;
 end
 
+// Nand Gate
+module Nandgate(
+    input a,
+    input b,
+    output y
+    );
+  assign y = ~(a&b);  
+endmodule
 
+//Testbench
+module Nandgate_tb;
+reg a,b;
+wire y;
+orgate uut(.a(a),.b(b),.y(y));
+initial begin
+$monitor("Time =%0t: a=%b, b=%b, y=%b",$time,a,b,y);
+a=0;b=0;
+#10;
+a=0;b=1;
+#10;
+a=1;b=0;
+#10;
+a=1;b=1;
+#10;
+$finish;
+end
+endmodule
