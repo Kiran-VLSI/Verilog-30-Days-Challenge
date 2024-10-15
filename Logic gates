@@ -198,7 +198,7 @@ module Exnorgate(
 endmodule
 
 //Testbench
-module Enxorgate_tb;
+module Exnorgate_tb;
 reg a,b;
 wire y;
 Exnorgate uut(.a(a),.b(b),.y(y));
